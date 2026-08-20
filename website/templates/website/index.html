@@ -1,0 +1,798 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOLARIS — Power Your Future With The Sun</title>
+    <meta name="description" content="Solaris provides premium solar panel solutions — reduce electricity costs, gain energy independence, and create a cleaner planet." />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: {
+                            50: '#fcfcfb',
+                            100: '#f5f5f0',
+                            200: '#e5e5dd',
+                            300: '#cccccc',
+                            400: '#999999',
+                            500: '#707070',
+                            600: '#4c4c4c',
+                            700: '#333333',
+                            800: '#1a1a1a',
+                            900: '#0c0c0b',
+                        },
+                        solar: {
+                            50: '#fffdf5',
+                            100: '#fef5d1',
+                            200: '#fde9a0',
+                            300: '#fdd96a',
+                            400: '#fcca38',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            950: '#451a03',
+                        },
+                        ecogreen: {
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        },
+                    },
+                    fontFamily: {
+                        display: ['Inter', 'system-ui', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-charcoal-50 text-charcoal-900 antialiased noise relative grid-bg">
+
+    <!-- ============ NAVBAR ============ -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 rounded-lg bg-charcoal-900 flex items-center justify-center transition-transform duration-500 group-hover:rotate-12">
+                    <i data-lucide="sun" class="w-4 h-4 text-solar-300" stroke-width="2.5"></i>
+                </div>
+                <span class="text-lg font-black tracking-[0.25em] text-charcoal-900">SOLARIS</span>
+            </a>
+            
+            <ul class="hidden lg:flex items-center gap-9 text-xs font-semibold uppercase tracking-widest text-charcoal-600/80">
+                <li><a href="#home" class="hover:text-charcoal-900 transition-colors">Home</a></li>
+                <li><a href="#solutions" class="hover:text-charcoal-900 transition-colors">Solutions</a></li>
+                <li><a href="#how" class="hover:text-charcoal-900 transition-colors">How It Works</a></li>
+                <li><a href="#benefits" class="hover:text-charcoal-900 transition-colors">Benefits</a></li>
+                <li><a href="#projects" class="hover:text-charcoal-900 transition-colors">Projects</a></li>
+                <li><a href="#reviews" class="hover:text-charcoal-900 transition-colors">Reviews</a></li>
+                <li><a href="#contact" class="hover:text-charcoal-900 transition-colors">Contact</a></li>
+            </ul>
+            
+            <div class="flex items-center gap-4">
+                <a href="#calculator" class="hidden sm:inline-flex btn-primary px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase">
+                    Get a Quote
+                </a>
+                <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-full glass flex items-center justify-center border border-charcoal-200">
+                    <i data-lucide="menu" class="w-4 h-4 text-charcoal-900" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden max-h-0 overflow-hidden transition-all duration-500 ease-out">
+            <div class="mx-6 mb-6 glass rounded-2xl p-6 flex flex-col gap-4 border border-charcoal-200">
+                <a href="#home" class="mobile-link py-1 text-xs font-bold uppercase tracking-wider text-charcoal-700">Home</a>
+                <a href="#solutions" class="mobile-link py-1 text-xs font-bold uppercase tracking-wider text-charcoal-700">Solutions</a>
+                <a href="#how" class="mobile-link py-1 text-xs font-bold uppercase tracking-wider text-charcoal-700">How It Works</a>
+                <a href="#benefits" class="mobile-link py-1 text-xs font-bold uppercase tracking-wider text-charcoal-700">Benefits</a>
+                <a href="#projects" class="mobile-link py-1 text-xs font-bold uppercase tracking-wider text-charcoal-700">Projects</a>
+                <a href="#reviews" class="mobile-link py-1 text-xs font-bold uppercase tracking-wider text-charcoal-700">Reviews</a>
+                <a href="#contact" class="mobile-link py-1 text-xs font-bold uppercase tracking-wider text-charcoal-700">Contact</a>
+                <a href="#calculator" class="mt-2 btn-primary w-full text-center px-6 py-3 rounded-full text-xs font-bold uppercase">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section id="home" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <!-- Minimal subtle radial background glow -->
+        <div class="absolute w-[800px] h-[800px] rounded-full bg-solar-100/30 blur-[150px] -top-60 -left-60 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-16 items-center relative z-10 w-full">
+            <!-- Left Info Content -->
+            <div class="lg:col-span-6 flex flex-col gap-8 text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-charcoal-100 rounded-full w-fit text-[10px] font-bold uppercase tracking-widest text-charcoal-700">
+                    <span class="w-1.5 h-1.5 rounded-full bg-solar-500"></span> Sustainable Future
+                </div>
+                <h1 class="text-5xl sm:text-7xl font-black tracking-tight leading-[1.05] text-charcoal-900">
+                    Turn Sunlight <br/>
+                    <span class="text-gradient-solar">Into Your Freedom.</span>
+                </h1>
+                <p class="text-base sm:text-lg text-charcoal-600 max-w-xl leading-relaxed">
+                    Solaris provides high-efficiency solar panel installations. Slash your utility costs, protect your home from blackouts, and power your future with clean, renewable energy.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#calculator" class="btn-primary px-8 py-4 rounded-full text-xs font-bold tracking-wider uppercase shadow-md">
+                        Get Your Free Quote
+                    </a>
+                    <a href="#how" class="btn-ghost px-8 py-4 rounded-full text-xs font-bold tracking-wider uppercase">
+                        Explore Solar
+                    </a>
+                </div>
+
+                <!-- Sleek horizontal stats counter row -->
+                <div class="grid grid-cols-3 gap-8 pt-8 border-t border-charcoal-200/60 mt-4">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-charcoal-900">25+ Yrs</div>
+                        <div class="text-[10px] uppercase font-bold tracking-wider text-charcoal-500 mt-1">Innovation</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-charcoal-900">98%</div>
+                        <div class="text-[10px] uppercase font-bold tracking-wider text-charcoal-500 mt-1">Satisfaction</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-charcoal-900">30K+</div>
+                        <div class="text-[10px] uppercase font-bold tracking-wider text-charcoal-500 mt-1">Homes Powered</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Graphic -->
+            <div class="lg:col-span-6 relative flex justify-center items-center">
+                <!-- Solaris glowing behind visual -->
+                <div class="absolute w-[400px] h-[400px] rounded-full bg-solar-100/40 blur-[80px] z-0"></div>
+
+                <!-- Modern House with Solar Panels Image -->
+                <div class="relative w-full max-w-[500px] h-[360px] sm:h-[450px] rounded-3xl overflow-hidden shadow-2xl z-10 group bg-white border border-charcoal-200">
+                    <img src="{% static 'images/hero_solar_house.png' %}" alt="Solaris Premium Solar Villa" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700" />
+                    
+                    <!-- Floating active metrics card inside hero visual -->
+                    <div class="absolute bottom-6 left-6 right-6 p-5 glass rounded-2xl flex items-center justify-between border border-charcoal-200 shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-charcoal-900 flex items-center justify-center text-solar-300">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-[9px] font-bold text-charcoal-500 uppercase tracking-widest">Active Output</h4>
+                                <p class="text-xs font-black text-charcoal-900">12.8 kW Generation</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-extrabold px-3 py-1 rounded-full bg-ecogreen-500/10 text-ecogreen-600 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-ecogreen-600 animate-ping"></span> 100% Green
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SOLAR ENERGY STORY SECTION ============ -->
+    <section id="how" class="py-28 relative overflow-hidden border-t border-charcoal-200 bg-charcoal-100/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+            <div class="text-left max-w-2xl mb-16 reveal">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-solar-600">The Energy Flow</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-2 text-charcoal-900">Your Roof. Your Power Plant.</h2>
+                <p class="text-sm sm:text-base text-charcoal-500 mt-4">
+                    See how seamlessly Solaris turns raw solar energy into power that charges your home, appliances, and electric vehicles.
+                </p>
+            </div>
+
+            <!-- Energy Timeline Grid / Story Flow -->
+            <div class="grid md:grid-cols-5 gap-6 items-stretch relative reveal reveal-delay-1">
+                <!-- Step 1: Sun -->
+                <div class="flex flex-col p-6 bg-white rounded-2xl border border-charcoal-200 h-full shadow-sm hover:border-solar-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-solar-100 flex items-center justify-center text-solar-600 mb-6">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-black text-charcoal-900 uppercase tracking-wide">1. The Sun</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">Constant source of nuclear fusion energy emitting millions of watts onto earth.</p>
+                </div>
+
+                <!-- Step 2: Panels -->
+                <div class="flex flex-col p-6 bg-white rounded-2xl border border-charcoal-200 h-full shadow-sm hover:border-solar-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-solar-100 flex items-center justify-center text-solar-600 mb-6">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-black text-charcoal-900 uppercase tracking-wide">2. Panels</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">Monocrystalline panels capture photons, triggering DC electricity flow.</p>
+                </div>
+
+                <!-- Step 3: Inverter / Home -->
+                <div class="flex flex-col p-6 bg-white rounded-2xl border border-charcoal-200 h-full shadow-sm hover:border-solar-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-solar-100 flex items-center justify-center text-solar-600 mb-6">
+                        <i data-lucide="home" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-black text-charcoal-900 uppercase tracking-wide">3. Your Home</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">Sleek inverters convert DC to AC electricity, powering household loads.</p>
+                </div>
+
+                <!-- Step 4: Battery Storage -->
+                <div class="flex flex-col p-6 bg-white rounded-2xl border border-charcoal-200 h-full shadow-sm hover:border-solar-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-solar-100 flex items-center justify-center text-solar-600 mb-6">
+                        <i data-lucide="battery-charging" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-black text-charcoal-900 uppercase tracking-wide">4. Storage</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">Excess generation is stored in smart batteries for night time or outages.</p>
+                </div>
+
+                <!-- Step 5: Grid Feed -->
+                <div class="flex flex-col p-6 bg-white rounded-2xl border border-charcoal-200 h-full shadow-sm hover:border-solar-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-solar-100 flex items-center justify-center text-solar-600 mb-6">
+                        <i data-lucide="activity" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-black text-charcoal-900 uppercase tracking-wide">5. Grid Feed</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">Net metering feeds surplus electricity back into the grid for billing credits.</p>
+                </div>
+            </div>
+
+            <!-- SVG Animated Flow Line below steps (Visible on wider screens) -->
+            <div class="hidden md:block absolute left-10 right-10 top-[200px] h-4 z-0 pointer-events-none">
+                <svg class="w-full h-full" fill="none" viewBox="0 0 1000 20">
+                    <path d="M10 10 H990" stroke="rgba(0,0,0,0.03)" stroke-width="2" stroke-linecap="round" />
+                    <path class="energy-line" d="M10 10 H990" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY SOLAR SECTION (BENTO GRID - Modern & Sleek) ============ -->
+    <section id="benefits" class="py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="text-left max-w-2xl mb-16 reveal">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-solar-600">Main Advantages</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-2 text-charcoal-900">Why Switch To Solaris Energy?</h2>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px] reveal reveal-delay-1">
+                <!-- Box 1 (Wide, spans 2 columns, Row spans 2) -->
+                <div class="md:col-span-2 md:row-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute right-0 bottom-0 top-0 w-1/2 opacity-10 pointer-events-none hidden sm:block">
+                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="90" cy="90" r="60" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-solar-100 flex items-center justify-center text-solar-600 mb-6">
+                            <i data-lucide="trending-down" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-charcoal-900 leading-tight">Lower Energy Bills</h3>
+                        <p class="text-sm text-charcoal-500 max-w-lg mt-4 leading-relaxed">
+                            Generate your own energy to decrease reliance on standard power grids and avoid surging electricity rates. Save up to 85% on your monthly commercial or household energy statement.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-black uppercase tracking-wider text-solar-700">
+                        <span>Average Monthly Savings: ~85%</span>
+                    </div>
+                </div>
+
+                <!-- Box 2 (Tall, spans 1 col, Row spans 2) -->
+                <div class="md:col-span-1 md:row-span-2 bg-charcoal-900 text-white rounded-3xl p-8 flex flex-col justify-between hover:bg-charcoal-800 transition-colors">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-solar-300 mb-6">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-2xl font-black leading-tight text-white">Energy Independence</h3>
+                        <p class="text-xs text-charcoal-300 mt-4 leading-relaxed">
+                            Store power in your battery storage bank to bypass rolling blackouts, regional outages, and grid failures. Your home stays operational 24/7.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-white/10 text-xs text-solar-300 font-bold uppercase tracking-widest">
+                        Zero Blackouts
+                    </div>
+                </div>
+
+                <!-- Box 3 (Normal, spans 1 col) -->
+                <div class="md:col-span-1 glass-card rounded-3xl p-8 flex flex-col justify-between">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-black text-charcoal-900">Cleaner Planet</h3>
+                        <div class="w-8 h-8 rounded-lg bg-ecogreen-500/10 flex items-center justify-center text-ecogreen-600">
+                            <i data-lucide="globe" class="w-4.5 h-4.5"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-charcoal-500 leading-relaxed">
+                        Offset tons of greenhouse gas emissions by shifting to sustainable solar power grids.
+                    </p>
+                </div>
+
+                <!-- Box 4 (Normal, spans 2 cols) -->
+                <div class="md:col-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-black text-charcoal-900">Smart Monitoring</h3>
+                            <p class="text-xs text-charcoal-500 mt-1">Track live solar output through our custom mobile application.</p>
+                        </div>
+                        <div class="w-10 h-10 rounded-lg bg-solar-100 flex items-center justify-center text-solar-600">
+                            <i data-lucide="smartphone" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 text-xs font-bold text-charcoal-600">
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-solar-600"></i> Generation stats</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-solar-600"></i> Charge status</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-solar-600"></i> Net metering log</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ INTERACTIVE SAVINGS CALCULATOR ============ -->
+    <section id="calculator" class="py-28 relative overflow-hidden bg-charcoal-100/30 border-t border-charcoal-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+            <div class="text-left max-w-2xl mb-16 reveal">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-solar-600">Interactive Estimator</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-2 text-charcoal-900">See Your Solar Potential</h2>
+                <p class="text-sm sm:text-base text-charcoal-500 mt-4">
+                    Adjust the sliders below to estimate your system size, financial savings, and environmental contribution.
+                </p>
+            </div>
+
+            <!-- Calculator Layout Grid -->
+            <div class="grid lg:grid-cols-12 gap-10 items-stretch reveal reveal-delay-1">
+                <!-- Left Input Panel -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-8 flex flex-col gap-8 border border-charcoal-200 shadow-sm">
+                    <!-- Input 1: Monthly Bill -->
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center">
+                            <label class="text-xs font-bold uppercase tracking-wider text-charcoal-500">Monthly Electricity Bill</label>
+                            <span id="billVal" class="text-lg font-black text-solar-600">₹8,000</span>
+                        </div>
+                        <input type="range" id="billSlider" class="solar-range" min="1000" max="50000" step="500" value="8000" />
+                    </div>
+
+                    <!-- Input 2: Home Type & Location -->
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex flex-col gap-3">
+                            <label class="text-xs font-bold uppercase tracking-wider text-charcoal-500">Home Type</label>
+                            <select id="homeType" class="bg-charcoal-50 border border-charcoal-200 text-charcoal-800 px-4 py-3 rounded-xl outline-none focus:border-solar-500 text-xs font-bold">
+                                <option value="villa">Independent Villa / House</option>
+                                <option value="commercial">Commercial Space</option>
+                                <option value="apartment">Residential Apartment</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <label class="text-xs font-bold uppercase tracking-wider text-charcoal-500">Your Location</label>
+                            <select id="location" class="bg-charcoal-50 border border-charcoal-200 text-charcoal-800 px-4 py-3 rounded-xl outline-none focus:border-solar-500 text-xs font-bold">
+                                <option value="south">Southern India (High Sun)</option>
+                                <option value="north">Northern India (Moderate Sun)</option>
+                                <option value="general">Central / General Zone</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Input 3: Roof Size -->
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center">
+                            <label class="text-xs font-bold uppercase tracking-wider text-charcoal-500">Available Roof Size</label>
+                            <span id="roofVal" class="text-lg font-black text-solar-600">1,200 sq. ft.</span>
+                        </div>
+                        <input type="range" id="roofSlider" class="solar-range" min="200" max="6000" step="50" value="1200" />
+                    </div>
+                </div>
+
+                <!-- Right Display Stats -->
+                <div class="lg:col-span-5 bg-charcoal-900 rounded-3xl p-8 flex flex-col justify-between text-white shadow-xl">
+                    <div class="flex flex-col gap-8">
+                        <div>
+                            <h3 class="text-[10px] uppercase font-bold tracking-widest text-charcoal-400">Estimated Monthly Savings</h3>
+                            <div id="estMonthlySavings" class="text-4xl sm:text-5xl font-black mt-2 text-solar-300">₹6,800</div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+                            <div>
+                                <h4 class="text-[9px] uppercase font-bold tracking-widest text-charcoal-400">Annual Savings</h4>
+                                <p id="estAnnualSavings" class="text-base font-black mt-1">₹81,600</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[9px] uppercase font-bold tracking-widest text-charcoal-400">CO₂ Avoided</h4>
+                                <p id="estCo2" class="text-base font-black mt-1">8,160 kg</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-6 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-[9px] uppercase font-bold tracking-widest text-charcoal-400">Payback Period</h4>
+                            <p id="estPayback" class="text-lg font-black mt-1">4.2 Years</p>
+                        </div>
+                        <a href="#contact" class="px-5 py-2.5 rounded-full bg-white text-charcoal-900 text-xs font-black hover:bg-solar-300 hover:text-charcoal-900 transition-colors">
+                            Book Setup
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ INSTALLATION PROCESS TIMELINE ============ -->
+    <section class="py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="text-left max-w-2xl mb-20 reveal">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-solar-600">Timeline</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-2 text-charcoal-900">How We Power Your House</h2>
+            </div>
+
+            <!-- Asymmetric minimalist timeline list -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal reveal-delay-1">
+                <div class="flex flex-col border-t-2 border-charcoal-900 pt-6">
+                    <span class="text-xs font-black text-solar-600">01 / DISCOVER</span>
+                    <h3 class="text-lg font-black text-charcoal-900 mt-2">Energy Assessment</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">
+                        We review your utility bills, assess roof orientation, and discuss your household load goals.
+                    </p>
+                </div>
+                <div class="flex flex-col border-t-2 border-charcoal-900 pt-6">
+                    <span class="text-xs font-black text-solar-600">02 / DESIGN</span>
+                    <h3 class="text-lg font-black text-charcoal-900 mt-2">Custom Engineering</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">
+                        Our engineers layout the electrical schematics and render a 3D panel blueprint of your roof.
+                    </p>
+                </div>
+                <div class="flex flex-col border-t-2 border-charcoal-900 pt-6">
+                    <span class="text-xs font-black text-solar-600">03 / INSTALL</span>
+                    <h3 class="text-lg font-black text-charcoal-900 mt-2">Precision Setup</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">
+                        Our licensed crew securely mounts the panels, wires the inverter, and connects batteries in 1-2 days.
+                    </p>
+                </div>
+                <div class="flex flex-col border-t-2 border-charcoal-900 pt-6">
+                    <span class="text-xs font-black text-solar-600">04 / POWER</span>
+                    <h3 class="text-lg font-black text-charcoal-900 mt-2">Grid Activation</h3>
+                    <p class="text-xs text-charcoal-500 mt-3 leading-relaxed">
+                        We finalize government utility tests, enable net metering, and turn on active grid generation!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FEATURED PROJECTS ============ -->
+    <section id="projects" class="py-28 relative overflow-hidden border-t border-charcoal-200/60 bg-charcoal-100/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 reveal gap-4">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-solar-600">Showcase</span>
+                    <h2 class="text-3xl sm:text-5xl font-black mt-2 text-charcoal-900">Projects Commissioned</h2>
+                </div>
+                <a href="#contact" class="btn-ghost px-6 py-3 rounded-full text-xs font-semibold">
+                    View All Case Studies
+                </a>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid md:grid-cols-3 gap-8 reveal reveal-delay-1">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-charcoal-200 group flex flex-col justify-between shadow-sm">
+                    <div class="h-[240px] overflow-hidden relative">
+                        <img src="{% static 'images/hero_solar_house.png' %}" alt="Project Chennai" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-bold px-2.5 py-1 rounded bg-solar-100 text-solar-700">15.4 kW Capacity</span>
+                            <span class="text-xs text-charcoal-500 font-semibold">Chennai</span>
+                        </div>
+                        <h3 class="text-lg font-black text-charcoal-900 mb-2">Modern Villa — Chennai</h3>
+                        <p class="text-xs text-charcoal-500 mb-6 leading-relaxed">Fully off-grid integration powering a beachfront villa with high-capacity smart battery bank backup.</p>
+                        <div class="flex justify-between border-t border-charcoal-150 pt-4 text-xs font-semibold">
+                            <span class="text-charcoal-500">Annual Gen:</span>
+                            <span class="text-solar-700">22,500 kWh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-charcoal-200 group flex flex-col justify-between shadow-sm">
+                    <div class="h-[240px] overflow-hidden relative">
+                        <img src="{% static 'images/after_solar.png' %}" alt="Project Coimbatore" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-bold px-2.5 py-1 rounded bg-solar-100 text-solar-700">10.2 kW Capacity</span>
+                            <span class="text-xs text-charcoal-500 font-semibold">Coimbatore</span>
+                        </div>
+                        <h3 class="text-lg font-black text-charcoal-900 mb-2">Eco Residence — Coimbatore</h3>
+                        <p class="text-xs text-charcoal-500 mb-6 leading-relaxed">Hybrid grid-tie solar setup designed to match net zero carbon offset objectives for farm housing.</p>
+                        <div class="flex justify-between border-t border-charcoal-150 pt-4 text-xs font-semibold">
+                            <span class="text-charcoal-500">Annual Gen:</span>
+                            <span class="text-solar-700">14,800 kWh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-charcoal-200 group flex flex-col justify-between shadow-sm">
+                    <div class="h-[240px] overflow-hidden relative">
+                        <img src="{% static 'images/hero_solar_house.png' %}" alt="Project Bangalore" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700" style="filter: hue-rotate(45deg);" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-bold px-2.5 py-1 rounded bg-solar-100 text-solar-700">24.0 kW Capacity</span>
+                            <span class="text-xs text-charcoal-500 font-semibold">Bangalore</span>
+                        </div>
+                        <h3 class="text-lg font-black text-charcoal-900 mb-2">Smart Home — Bangalore</h3>
+                        <p class="text-xs text-charcoal-500 mb-6 leading-relaxed">Autonomous EV Charging integrated solar carport installation with automated energy routing metrics.</p>
+                        <div class="flex justify-between border-t border-charcoal-150 pt-4 text-xs font-semibold">
+                            <span class="text-charcoal-500">Annual Gen:</span>
+                            <span class="text-solar-700">35,000 kWh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BEFORE / AFTER SLIDER SECTION ============ -->
+    <section class="py-28 relative overflow-hidden bg-charcoal-100/30 border-t border-charcoal-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="text-left max-w-2xl mb-12 reveal">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-solar-600">Visual Comparison</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-2 text-charcoal-900">See The Solar Transformation</h2>
+                <p class="text-sm text-charcoal-500 mt-4">
+                    Drag the slider handle sideways to compare a household relying 100% on public utility versus a modernized Solaris setup.
+                </p>
+            </div>
+
+            <!-- Comparison Slider Container -->
+            <div class="max-w-[850px] mx-auto relative compare-container rounded-3xl overflow-hidden shadow-xl aspect-[16/9] border border-charcoal-200 reveal reveal-delay-1">
+                <!-- Background Image (After Solar) -->
+                <img src="{% static 'images/after_solar.png' %}" alt="After Solar Solution" class="absolute inset-0 w-full h-full object-cover" />
+                <span class="absolute right-6 bottom-6 bg-white/90 text-charcoal-900 border border-charcoal-200 rounded-full px-4 py-2 text-[10px] uppercase font-bold z-20 shadow-sm tracking-wider">After: Clean Grid Power</span>
+
+                <!-- Sliding Overlay (Before Solar) -->
+                <div class="compare-overlay">
+                    <img src="{% static 'images/before_solar.png' %}" alt="Before Solar Solution" class="absolute inset-0 w-full h-full object-cover" style="width: 850px; max-width: none;" />
+                    <span class="absolute left-6 bottom-6 bg-white/90 text-charcoal-950 border border-charcoal-200 rounded-full px-4 py-2 text-[10px] uppercase font-bold z-20 shadow-sm tracking-wider">Before: Coal Grid Dependency</span>
+                </div>
+
+                <!-- Custom Slider Control Input (Transparent layer across container) -->
+                <input type="range" class="compare-slider" min="0" max="100" value="50" style="position: absolute; top:0; left:0; width:100%; height:100%; opacity:0; z-index:40; cursor: ew-resize;" />
+
+                <!-- Visible Handle bar and indicator -->
+                <div class="compare-handle">
+                    <div class="compare-button">
+                        <i data-lucide="chevrons-left-right" class="w-4.5 h-4.5 text-charcoal-900"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SUSTAINABILITY SECTION ============ -->
+    <section class="py-32 relative overflow-hidden bg-charcoal-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 text-center flex flex-col items-center">
+            <div class="max-w-3xl flex flex-col gap-6 reveal items-center">
+                <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-solar-300 mb-2">
+                    <i data-lucide="leaf" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl sm:text-6xl font-black tracking-tight leading-[1.1] text-white">
+                    “Every Panel Is A Step Toward <br class="hidden sm:inline"/>
+                    <span class="text-gradient-eco">A Cleaner Tomorrow.”</span>
+                </h2>
+                <p class="text-sm sm:text-base text-charcoal-300 max-w-xl leading-relaxed mt-2">
+                    By making solar power accessible to everyone, we have collectively offset tons of hazardous waste emissions.
+                </p>
+            </div>
+
+            <!-- Quantitative Stats Count -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 w-full max-w-4xl reveal reveal-delay-1">
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-4xl sm:text-5xl font-black text-solar-300">
+                        <span class="stat-counter" data-target="12450">12,450</span>
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest font-bold text-charcoal-300 mt-4">Tons of CO₂ Avoided</p>
+                </div>
+
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-4xl sm:text-5xl font-black text-solar-300">
+                        <span class="stat-counter" data-target="8200000">8,200,000</span>
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest font-bold text-charcoal-300 mt-4">kWh Clean Energy</p>
+                </div>
+
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-4xl sm:text-5xl font-black text-solar-300">
+                        <span class="stat-counter" data-target="30000">30,000</span>+
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest font-bold text-charcoal-300 mt-4">Homes Powered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS CAROUSEL ============ -->
+    <section id="reviews" class="py-28 relative overflow-hidden border-t border-charcoal-200">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="text-left mb-16 reveal">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-solar-600">Client Reviews</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 text-charcoal-900">What Our Customers Say</h2>
+            </div>
+
+            <!-- Carousel Box -->
+            <div class="bg-white rounded-3xl p-8 sm:p-12 border border-charcoal-200 relative shadow-sm reveal reveal-delay-1">
+                <!-- Slide 1 -->
+                <div class="carousel-slide flex flex-col gap-6 text-left">
+                    <div class="flex gap-1 text-solar-500">
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                    </div>
+                    <p class="text-base sm:text-xl font-medium leading-relaxed italic text-charcoal-800">
+                        "Solaris completely changed the way we think about electricity. Our monthly bill dropped from ₹9,000 to less than ₹1,200. The smart battery system kept us online during a major storm last month. Switching was a no-brainer."
+                    </p>
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="w-10 h-10 rounded-full bg-solar-100 flex items-center justify-center text-solar-700 font-bold text-sm">
+                            SK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-charcoal-900 text-sm">Senthil Kumar</h4>
+                            <p class="text-xs text-charcoal-500">Villa Owner, Chennai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-slide flex flex-col gap-6 text-left hidden">
+                    <div class="flex gap-1 text-solar-500">
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                    </div>
+                    <p class="text-base sm:text-xl font-medium leading-relaxed italic text-charcoal-800">
+                        "The design phase was so simple. They showed us a 3D simulation of our roof panels and estimate. The actual installation team finished everything in a single afternoon with zero mess. Highly recommended!"
+                    </p>
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="w-10 h-10 rounded-full bg-solar-100 flex items-center justify-center text-solar-700 font-bold text-sm">
+                            AR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-charcoal-900 text-sm">Asha Rao</h4>
+                            <p class="text-xs text-charcoal-500">Residence, Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide flex flex-col gap-6 text-left hidden">
+                    <div class="flex gap-1 text-solar-500">
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-solar-500"></i>
+                    </div>
+                    <p class="text-base sm:text-xl font-medium leading-relaxed italic text-charcoal-800">
+                        "As a commercial site, we were consuming high grid tariff energy. Solaris designed a hybrid solar farm on our terrace. The financial payback is on track for just 4 years. Excellent customer service support!"
+                    </p>
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="w-10 h-10 rounded-full bg-solar-100 flex items-center justify-center text-solar-700 font-bold text-sm">
+                            VM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-charcoal-900 text-sm">Vikram Malhotra</h4>
+                            <p class="text-xs text-charcoal-500">Tech Lead, Hyderabad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons inside box -->
+                <div class="absolute bottom-8 right-8 flex gap-3">
+                    <button id="prevReview" class="w-8 h-8 rounded-full border border-charcoal-200 hover:bg-solar-100 flex items-center justify-center text-charcoal-700 transition-colors">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <button id="nextReview" class="w-8 h-8 rounded-full border border-charcoal-200 hover:bg-solar-100 flex items-center justify-center text-charcoal-700 transition-colors">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FINAL CTA SECTION ============ -->
+    <section id="contact" class="py-32 relative overflow-hidden border-t border-charcoal-200 bg-charcoal-100/20">
+        <div class="absolute w-[600px] h-[600px] rounded-full bg-solar-100/30 blur-[130px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center gap-8 reveal">
+            <h2 class="text-3xl sm:text-6xl font-black tracking-tight leading-[1.1] text-charcoal-900">
+                Ready To Make The <br/>
+                <span class="text-gradient-solar">Sun Work For You?</span>
+            </h2>
+            <p class="text-sm sm:text-base text-charcoal-500 max-w-xl leading-relaxed">
+                Get a personalized solar consultation and estimate. Take the first step to decrease your electricity costs forever.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#calculator" class="btn-primary px-8 py-4 rounded-full text-xs font-bold tracking-wider uppercase shadow-md">
+                    Calculate My Savings
+                </a>
+                <a href="mailto:contact@solaris-solar.com" class="btn-ghost px-8 py-4 rounded-full text-xs font-bold tracking-wider uppercase flex items-center gap-2">
+                    Talk To An Expert <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="border-t border-charcoal-200/60 py-16 bg-white relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+            <!-- Brand -->
+            <div class="flex flex-col gap-4">
+                <a href="#home" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-charcoal-900 flex items-center justify-center text-solar-300">
+                        <i data-lucide="sun" class="w-4 h-4" stroke-width="2.5"></i>
+                    </div>
+                    <span class="text-base font-black tracking-widest text-charcoal-900">SOLARIS</span>
+                </a>
+                <p class="text-xs text-charcoal-500 leading-relaxed max-w-[240px]">
+                    Power Your Future With The Sun. Providing sustainable renewable solutions for smart households.
+                </p>
+            </div>
+
+            <!-- Links: Solutions -->
+            <div class="flex flex-col gap-4">
+                <h4 class="text-xs font-black uppercase tracking-widest text-charcoal-800">Solutions</h4>
+                <ul class="flex flex-col gap-2.5 text-xs text-charcoal-500">
+                    <li><a href="#benefits" class="hover:text-charcoal-900 transition-colors">Residential Systems</a></li>
+                    <li><a href="#benefits" class="hover:text-charcoal-900 transition-colors">Commercial Carports</a></li>
+                    <li><a href="#benefits" class="hover:text-charcoal-900 transition-colors">Smart Battery Pack</a></li>
+                </ul>
+            </div>
+
+            <!-- Links: Company -->
+            <div class="flex flex-col gap-4">
+                <h4 class="text-xs font-black uppercase tracking-widest text-charcoal-800">Resources</h4>
+                <ul class="flex flex-col gap-2.5 text-xs text-charcoal-500">
+                    <li><a href="#how" class="hover:text-charcoal-900 transition-colors">Installation FAQ</a></li>
+                    <li><a href="#projects" class="hover:text-charcoal-900 transition-colors">Featured Portfolios</a></li>
+                    <li><a href="#reviews" class="hover:text-charcoal-900 transition-colors">Client Testimonials</a></li>
+                </ul>
+            </div>
+
+            <!-- Links: Contact / Social -->
+            <div class="flex flex-col gap-4">
+                <h4 class="text-xs font-black uppercase tracking-widest text-charcoal-800">Connect</h4>
+                <ul class="flex flex-col gap-2.5 text-xs text-charcoal-500 mb-2">
+                    <li>support@solaris-solar.com</li>
+                    <li>+91 (44) 4567 8901</li>
+                </ul>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-charcoal-50 border border-charcoal-200 hover:bg-solar-100 hover:text-solar-700 flex items-center justify-center text-charcoal-500 transition-colors"><i data-lucide="twitter" class="w-3.5 h-3.5"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-charcoal-50 border border-charcoal-200 hover:bg-solar-100 hover:text-solar-700 flex items-center justify-center text-charcoal-500 transition-colors"><i data-lucide="instagram" class="w-3.5 h-3.5"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-charcoal-50 border border-charcoal-200 hover:bg-solar-100 hover:text-solar-700 flex items-center justify-center text-charcoal-500 transition-colors"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 border-t border-charcoal-200 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-xs text-charcoal-400">&copy; 2026 Solaris Energy. All rights reserved.</span>
+            <div class="flex gap-6 text-xs text-charcoal-400">
+                <a href="#" class="hover:text-charcoal-900 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-charcoal-900 transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts linking -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
